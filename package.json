@@ -1,0 +1,24 @@
+{
+  "name": "glg-toolkit",
+  "version": "0.0.0",
+  "descrption": "Just like ui-toolkit, but all GLG style specific",
+  "devDependencies": {
+    "polymer": "git://github.com/custom-elements/polymer#master",
+    "polymer-tools": "git://github.com/custom-elements/polymer-tools#master",
+    "ui-fonts": "git://github.com/custom-elements/ui-fonts#master",
+    "glg-fonts": "git://github.com/custom-elements/glg-fonts#master",
+    "ui-styles": "git://github.com/custom-elements/ui-styles#master",
+    "ui-toolkit": ""
+  },
+  "repository": "git@github.com:Custom-Elements/glg-toolkit.git",
+  "license": "ISC",
+  "scripts": {
+    "prepublish": "make",
+    "test": "make test"
+  },
+  "files": [
+    "build/"
+  ],
+  "dependencies": {
+  }
+}

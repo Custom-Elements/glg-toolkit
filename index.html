@@ -11,8 +11,7 @@
     <link rel="import" href="node_modules/glg-fonts/build/glg.css">
     <style>
       body {
-        display: flex;
-        flex-wrap: wrap;
+        font-family: "Helvetica Neue", "Helvetica", Arial;
       }
       ui-fast-picker {
         margin-left: 3em;
@@ -22,6 +21,9 @@
         min-height: 5em;
         background-color: rgba(239, 39, 45, 0.5);
         border: 1px solid rgba(0, 0, 0, 0.04);
+      }
+      ui-toolbar {
+        position: relative;
       }
       .shady {
         background-color: rgba(0, 0, 0, 0.2);
@@ -149,6 +151,15 @@
       </section>
     </section>
     <section tile>
+      <h1>Loader Progress</h1>
+      <p>Look up :)</p>
+      <ui-progress id="loader"></ui-progress>
+      <ui-button label="Start" onclick="document.querySelector('#loader').start();">
+      </ui-button>
+      <ui-button label="Stop" onclick="document.querySelector('#loader').stop();">
+      </ui-button>
+    </section>
+    <section tile>
       <h1>Tiler</h1>
       <section class="redboxholder">
         <ui-grid-tiler selector=".redbox">
@@ -157,64 +168,65 @@
         </template>
         </ui-grid-tiler>
       </section>
-      <script>
-        document.addEventListener('polymer-ready', function() {
-          var ct = 0
-          document.querySelector('#tiles').model = {tiles: []};
-          var tiles = document.querySelector('#tiles').model.tiles;
-          var tileMe = function() {
-            if (tiles.length > 15)
-              tiles.grow = false;
-            else if (tiles.length == 0)
-              tiles.grow = true;
-            if (tiles.grow)
-              tiles.push({id: ct++});
-            else
-              tiles.pop();
-          }
-          setInterval(tileMe, 1000);
-          var items = []
-          var typeahead = document.querySelector('ui-typeahead');
-          var setData = function(prefix) {
-            var t = document.querySelector('#typeahead-template');
-            items = [
-              {
-              icon: 'fa-eye',
-              text: 'Hello ' + prefix,
-              detail: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. " },
-              {
-                icon: 'fa-car',
-                text: 'Goodbye ' + prefix,
-                detail: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
-              },
-              {
-                icon: 'fa-check',
-                text: 'Another ' + prefix,
-                detail: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
-              },
-              {
-                icon: 'fa-plus',
-                text: 'The Final ' + prefix,
-                detail: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? "
-              }
-            ];
+    </section>
+    <script>
+      document.addEventListener('polymer-ready', function() {
+        var ct = 0
+        document.querySelector('#tiles').model = {tiles: []};
+        var tiles = document.querySelector('#tiles').model.tiles;
+        var tileMe = function() {
+          if (tiles.length > 15)
+            tiles.grow = false;
+          else if (tiles.length == 0)
+            tiles.grow = true;
+          if (tiles.grow)
+            tiles.push({id: ct++});
+          else
+            tiles.pop();
+        }
+        setInterval(tileMe, 1000);
+        var items = []
+        var typeahead = document.querySelector('ui-typeahead');
+        var setData = function(prefix) {
+          var t = document.querySelector('#typeahead-template');
+          items = [
+            {
+            icon: 'fa-eye',
+            text: 'Hello ' + prefix,
+            detail: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. " },
+            {
+              icon: 'fa-car',
+              text: 'Goodbye ' + prefix,
+              detail: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+            },
+            {
+              icon: 'fa-check',
+              text: 'Another ' + prefix,
+              detail: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+            },
+            {
+              icon: 'fa-plus',
+              text: 'The Final ' + prefix,
+              detail: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? "
+            }
+          ];
 
-            if (!prefix )
-              items = []
+          if (!prefix )
+            items = []
 
-            t.model = { items: items };
-          };
+          t.model = { items: items };
+        };
 
-          typeahead.addEventListener('inputChange', function(e) {
-            setData(e.detail.value);
-          });
-
-          typeahead.addEventListener('change', function(e) {
-            console.log('value changed', e.detail);
-            document.querySelector('#selected-item').model = { item: items[e.detail.index] };
-            Platform.performMicrotaskCheckpoint();
-          });
+        typeahead.addEventListener('inputChange', function(e) {
+          setData(e.detail.value);
         });
-      </script>
-    </body>
-  </html>
+
+        typeahead.addEventListener('change', function(e) {
+          console.log('value changed', e.detail);
+          document.querySelector('#selected-item').model = { item: items[e.detail.index] };
+          Platform.performMicrotaskCheckpoint();
+        });
+      });
+    </script>
+  </body>
+</html>

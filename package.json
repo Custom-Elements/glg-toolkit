@@ -1,6 +1,6 @@
 {
   "name": "glg-toolkit",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "descrption": "Just like ui-toolkit, but all GLG style specific",
   "devDependencies": {
     "glg-awesome-auth": "git://github.com/custom-elements/glg-awesome-auth",
@@ -14,5 +14,8 @@
   "scripts": {
     "prepublish": "make",
     "test": "make test"
-  }
+  },
+  "files": [
+    "build"
+  ]
 }

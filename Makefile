@@ -1,7 +1,6 @@
 .PHONY: build test polymer
 
 build: polymer
-	bower install
 	polymer-build src/ build/
 
 test: polymer
@@ -9,7 +8,6 @@ test: polymer
 
 polymer:
 	[ -d build ] || mkdir build
-	cp node_modules/polymer/layout.* build/
-	cp node_modules/polymer/polymer.* build/
-	cp node_modules/polymer/platform.* build/
-
+	cp node_modules/ui-toolkit/build/layout.* build/
+	cp node_modules/ui-toolkit/build/polymer.* build/
+	cp node_modules/ui-toolkit/build/platform.* build/

@@ -1,13 +1,10 @@
-.PHONY: build test polymer
+.PHONY: build test
 
-build: polymer
-	polymer-build src/ build/
+POLYMER_BUILD="./node_modules/.bin/polymer-build"
+BOWER="./node_modules/.bin/bower"
 
-test: polymer
-	polymer-build watch . src/ build/
+build:
+	${POLYMER_BUILD} --exclude-polymer --compress src/ build/ glg-toolkit.html
 
-polymer:
-	[ -d build ] || mkdir build
-	cp node_modules/ui-toolkit/build/layout.* build/
-	cp node_modules/ui-toolkit/build/polymer.* build/
-	cp node_modules/ui-toolkit/build/platform.* build/
+test:
+	${POLYMER_BUILD} watch . src/ build/

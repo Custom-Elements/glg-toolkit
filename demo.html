@@ -2,14 +2,21 @@
 
 <html>
   <head>
-    <title>glg-toolkit</title>
+    <title>ui-toolkit</title>
     <script src="http://localhost:35729/livereload.js"></script>
-    <script src="build/platform.js"></script>
-    <link rel="import" href="build/polymer.html">
-    <link rel="import" href="build/glg-toolkit.html">
+    <script src="node_modules/polymer/platform.js"></script>
+    <link rel="import" href="node_modules/polymer/polymer.html">
+    <link rel="import" href="src/glg-toolkit.html">
     <style>
+      body {
+        font-family: "Helvetica Neue", "Helvetica", Arial;
+      }
     </style>
   </head>
   <body unresolved>
+    <container>
+      <glg-recommended-cm id="recommended-cm"  limit="100" cmid="622887" createdby="5555">
+      </glg-recommended-cm>
+    </container>
   </body>
-  </html>
+</html>

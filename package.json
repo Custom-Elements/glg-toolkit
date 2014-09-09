@@ -14,7 +14,7 @@
   "repository": "git@github.com:Custom-Elements/glg-toolkit.git",
   "license": "ISC",
   "scripts": {
-    "prepublish": "make",
+    "prepublish": "make build",
     "test": "make test"
   },
   "files": [

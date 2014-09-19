@@ -6,6 +6,7 @@
     "glg-recommended-cm": "git://github.com/custom-elements/glg-recommended-cm",
     "glg-tag-cm": "git://github.com/custom-elements/glg-tag-cm",
     "glg-fonts": "git://github.com/custom-elements/glg-fonts#master",
+    "glg-betagroup": "git://github.com/custom-elements/glg-betagroup#master",
     "polymer-build": "git://github.com/custom-elements/polymer-tools#master",
     "ui-toolkit": "git://github.com/custom-elements/ui-toolkit#master",
     "ui-font-awesome": "git://github.com/custom-elements/ui-font-awesome",

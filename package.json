@@ -3,14 +3,14 @@
   "version": "0.0.3",
   "descrption": "Just like ui-toolkit, but all GLG style specific",
   "devDependencies": {
-    "glg-recommended-cm": "git://github.com/custom-elements/glg-recommended-cm",
-    "glg-tag-cm": "git://github.com/custom-elements/glg-tag-cm",
-    "glg-fonts": "git://github.com/custom-elements/glg-fonts#master",
-    "glg-betagroup": "git://github.com/custom-elements/glg-betagroup#master",
-    "polymer-build": "git://github.com/custom-elements/polymer-tools#master",
-    "ui-toolkit": "git://github.com/custom-elements/ui-toolkit#master",
-    "ui-font-awesome": "git://github.com/custom-elements/ui-font-awesome",
-    "polymer": "git://github.com/custom-elements/polymer#master"
+    "glg-recommended-cm": "git+https://github.com/custom-elements/glg-recommended-cm",
+    "glg-tag-cm": "git+https://github.com/custom-elements/glg-tag-cm",
+    "glg-fonts": "git+https://github.com/custom-elements/glg-fonts#master",
+    "glg-betagroup": "git+https://github.com/custom-elements/glg-betagroup#master",
+    "polymer-build": "git+https://github.com/custom-elements/polymer-tools#master",
+    "ui-toolkit": "git+https://github.com/custom-elements/ui-toolkit#master",
+    "ui-font-awesome": "git+https://github.com/custom-elements/ui-font-awesome",
+    "polymer": "git+https://github.com/custom-elements/polymer#master"
   },
   "repository": "git@github.com:Custom-Elements/glg-toolkit.git",
   "license": "ISC",
@@ -22,6 +22,6 @@
     "build"
   ],
   "dependencies": {
-    "polymer": "git://github.com/custom-elements/polymer#master"
+    "polymer": "git+https://github.com/custom-elements/polymer#master"
   }
 }
